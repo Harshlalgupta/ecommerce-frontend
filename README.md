@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+E-commerce Frontend
+Welcome to the frontend of our E-commerce platform! This project is the client-side application designed to provide a seamless and engaging shopping experience for users. Built with modern web technologies, the frontend interacts with our backend API to deliver a robust and scalable e-commerce solution.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Key Features
+User Authentication: Secure user registration and login functionality.
+Product Management: Browse, search, and filter a wide range of products.
+Shopping Cart: Add products to the cart, update quantities, and manage selections.
+Checkout Process: Streamlined checkout process with payment integration.
+Order History: View past orders and track the status of current orders.
+Admin Panel: Manage products, categories, and orders with an intuitive interface (admin access only).
+Technologies Used
+React: A JavaScript library for building user interfaces.
+Redux: State management for handling application state.
+TypeScript: Type-safe codebase to enhance development efficiency and code quality.
+Axios: Promise-based HTTP client for making API requests.
+React Router: Declarative routing for React applications.
+Tailwind CSS: Utility-first CSS framework for styling.
+Firebase: Authentication and cloud storage solutions.
+Toast Notifications: Real-time feedback for user actions using react-hot-toast.
+Getting Started
+Prerequisites
+Make sure you have the following installed on your development machine:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Node.js (v14.x or higher)
+npm (v6.x or higher) or Yarn (v1.x or higher)

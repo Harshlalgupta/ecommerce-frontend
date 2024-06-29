@@ -27,14 +27,12 @@ const Productmanagement = () => {
       price: 0,
       description: "",
     };
-
-  const [priceUpdate, setPriceUpdate] = useState<number>(price);
-  const [stockUpdate, setStockUpdate] = useState<number>(stock);
-  const [nameUpdate, setNameUpdate] = useState<string>(name);
-  const [categoryUpdate, setCategoryUpdate] = useState<string>(category);
-  const [ setPhotoUpdate] = useState<string>("");
-  const [photoFile, setPhotoFile] = useState<File>();
-
+    const [priceUpdate, setPriceUpdate] = useState<number>(Number(price) || 0);
+    const [stockUpdate, setStockUpdate] = useState<number>(Number(stock) || 0);
+    const [nameUpdate, setNameUpdate] = useState<string>(String(name) || "");
+const [categoryUpdate, setCategoryUpdate] = useState<string>(String(category) || "");
+  const [ photoUpdate ,setPhotoUpdate] = useState<string>("");
+  const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
   const [updateProduct] = useUpdateProductMutation();
   const [deleteProduct] = useDeleteProductMutation();
 

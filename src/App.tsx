@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from './redux/api/userAPI.ts';
 //import { UserReducerInitialState } from './types/reducer-types.ts';
 import ProtectedRoute from './components/protected-route.tsx';
-import { RootState } from '@reduxjs/toolkit/query';
+import { UserReducerInitialState } from './types/reducer-types.ts';
 
 //renaming the browser router as _ ,_ ,_
 
@@ -49,7 +49,7 @@ const TransactionManagement = lazy(
 
 const App = () => { 
 
-  const { user, loading } = useSelector((state: RootState) => state.userReducer);
+  const { user, loading } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const dispatch=useDispatch(); 
  // signOut(auth).then((c)=>console.log("yes"));

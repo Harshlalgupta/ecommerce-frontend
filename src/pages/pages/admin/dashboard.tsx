@@ -7,7 +7,6 @@ import { BarChart, DoughnutChart } from "../../../components/admin/Charts";
 import Table from "../../../components/admin/DashboardTable";
 //import data from '../../../assets/data.json';
 import { getLastMonths } from "../../../utils/features";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { useStatsQuery } from "../../../redux/api/dashboardAPI";
 import { Navigate } from "react-router-dom";

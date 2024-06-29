@@ -6,7 +6,7 @@ import { saveShippingInfo } from "../redux/reducer/cartReducer";
 import axios from "axios";
 import { server } from "../redux/store";
 import toast from "react-hot-toast";
-import { CartReducerInitialState, UserReducerInitialState } from "../types/reducer-types";
+import { CartReducerInitialState } from "../types/reducer-types";
 
 
 const Shipping = () => {

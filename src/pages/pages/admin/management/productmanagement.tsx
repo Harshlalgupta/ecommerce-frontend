@@ -31,8 +31,9 @@ const Productmanagement = () => {
     const [stockUpdate, setStockUpdate] = useState<number>(Number(stock) || 0);
     const [nameUpdate, setNameUpdate] = useState<string>(String(name) || "");
 const [categoryUpdate, setCategoryUpdate] = useState<string>(String(category) || "");
-  const [ photoUpdate ,setPhotoUpdate] = useState<string>("");
+  const [setPhotoUpdate] = useState<string>("");
   const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
+
   const [updateProduct] = useUpdateProductMutation();
   const [deleteProduct] = useDeleteProductMutation();
 

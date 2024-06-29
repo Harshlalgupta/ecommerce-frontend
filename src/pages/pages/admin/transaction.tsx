@@ -7,8 +7,8 @@ import { Skeleton } from "../../../components/loader";
 import toast from "react-hot-toast";
 import { CustomError } from "../../../types/api-types";
 import { useAllOrdersQuery } from "../../../redux/api/orderAPI";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
+import { UserReducerInitialState } from "../../../types/reducer-types";
 
 interface DataType {
   user: string;
@@ -19,33 +19,6 @@ interface DataType {
   action: ReactElement;
 }
 
-const arr: Array<DataType> = [
-  {
-    user: "Charas",
-    amount: 4500,
-    discount: 400,
-    status: <span className="red">Processing</span>,
-    quantity: 3,
-    action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
-  },
-
-  {
-    user: "Xavirors",
-    amount: 6999,
-    discount: 400,
-    status: <span className="green">Shipped</span>,
-    quantity: 6,
-    action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
-  },
-  {
-    user: "Xavirors",
-    amount: 6999,
-    discount: 400,
-    status: <span className="purple">Delivered</span>,
-    quantity: 6,
-    action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
-  },
-];
 
 const columns: Column<DataType>[] = [
   {
@@ -75,7 +48,7 @@ const columns: Column<DataType>[] = [
 ];
 
 const Transaction = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, isError, error } = useAllOrdersQuery(user?._id!);
 

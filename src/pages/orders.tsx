@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { Column } from "react-table";
 import TableHOC from "../components/admin/TableHOC";
 import { useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useMyOrdersQuery } from "../redux/api/orderAPI";
 import { CustomError } from "../types/api-types";
 import toast from "react-hot-toast";
 import { Skeleton } from "../components/loader";
+import { UserReducerInitialState } from "../types/reducer-types";
 
 type DataType = {
   _id: string;
@@ -47,7 +47,7 @@ const column: Column<DataType>[] = [
 
 const Orders = () => {
 
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, isError, error } = useMyOrdersQuery(user?._id!);
 

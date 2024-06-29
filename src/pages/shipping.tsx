@@ -1,4 +1,3 @@
-import { RootState } from "@reduxjs/toolkit/query";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,12 +6,13 @@ import { saveShippingInfo } from "../redux/reducer/cartReducer";
 import axios from "axios";
 import { server } from "../redux/store";
 import toast from "react-hot-toast";
+import { UserReducerInitialState } from "../types/reducer-types";
 
 
 const Shipping = () => {
 
   const { cartItems, total } = useSelector(
-    (state: RootState) => state.cartReducer
+    (state: {userReducer:UserReducerInitialState}) => state.cartReducer
   );
 
   const navigate = useNavigate();

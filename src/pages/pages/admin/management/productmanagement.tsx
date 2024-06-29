@@ -2,16 +2,16 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useDeleteProductMutation, useProductDetailsQuery, useUpdateProductMutation } from "../../../../redux/api/productAPI";
 import { server } from "../../../../redux/store";
 import { Skeleton } from "../../../../components/loader";
-import { responseToast, transformImage } from "../../../../utils/features";
+import { responseToast} from "../../../../utils/features";
+import { UserReducerInitialState } from "../../../../types/reducer-types";
 
 const Productmanagement = () => {
 
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const params = useParams();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Productmanagement = () => {
   const [stockUpdate, setStockUpdate] = useState<number>(stock);
   const [nameUpdate, setNameUpdate] = useState<string>(name);
   const [categoryUpdate, setCategoryUpdate] = useState<string>(category);
-  const [photoUpdate, setPhotoUpdate] = useState<string>("");
+  const [ setPhotoUpdate] = useState<string>("");
   const [photoFile, setPhotoFile] = useState<File>();
 
   const [updateProduct] = useUpdateProductMutation();

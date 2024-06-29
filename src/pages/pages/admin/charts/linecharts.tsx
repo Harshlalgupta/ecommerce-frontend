@@ -4,14 +4,14 @@ import { LineChart } from "../../../../components/admin/Charts";
 import { Skeleton } from "../../../../components/loader";
 import { CustomError } from "../../../../types/api-types";
 import { useLineQuery } from "../../../../redux/api/dashboardAPI";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { getLastMonths } from "../../../../utils/features";
+import { UserReducerInitialState } from "../../../../types/reducer-types";
 
 const { last12Months: months } = getLastMonths();
 
 const Linecharts = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, error, isError } = useLineQuery(user?._id!);
 

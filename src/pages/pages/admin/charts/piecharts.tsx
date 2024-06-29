@@ -3,11 +3,11 @@ import { DoughnutChart, PieChart } from "../../../../components/admin/Charts";
 import { Skeleton } from "../../../../components/loader";
 import { Navigate } from "react-router-dom";
 import { usePieQuery } from "../../../../redux/api/dashboardAPI";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
+import { UserReducerInitialState } from "../../../../types/reducer-types";
 
 const PieCharts = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, isError } = usePieQuery(user?._id!);
 

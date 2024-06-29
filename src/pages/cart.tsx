@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import CartItemCard from "../components/cart-item";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, calculatePrice, discountApplied, removeCartItem } from "../redux/reducer/cartReducer";
 import { CartItem } from "../types/types";
 import { server } from "../redux/store";
 import axios from "axios";
+import { UserReducerInitialState } from "../types/reducer-types";
 
 
 
 const Cart = () => {
   const { cartItems, subtotal, tax, total, shippingCharges, discount } =
-  useSelector((state: RootState) => state.cartReducer);
+  useSelector((state: {userReducer:UserReducerInitialState}) => state.cartReducer);
   const dispatch=useDispatch();
 
   const [couponCode,setCouponCode]=useState<string>("");
@@ -69,7 +69,7 @@ const Cart = () => {
     <div className="cart">
       <main>
       {cartItems.length > 0 ? (
-     cartItems.map((i, idx) => <CartItemCard incrementHandler={incrementHandler} decrementHandler={decrementHandler} removeHandler={removeHandler} key={idx} cartItem={i} />)
+     cartItems.map((cartem:CartItem ,idx:number) => <CartItemCard incrementHandler={incrementHandler} decrementHandler={decrementHandler} removeHandler={removeHandler} key={idx} cartItem={cartem} />)
 )
 :(<h1>No Items Added</h1>)
 }

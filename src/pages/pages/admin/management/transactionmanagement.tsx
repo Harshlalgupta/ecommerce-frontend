@@ -4,11 +4,11 @@ import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import { Order, OrderItem } from "../../../../types/types";
 //import { server } from "../../../../redux/store";
 //import { responseToast } from "../../../../utils/features";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useDeleteOrderMutation, useOrderDetailsQuery, useUpdateOrderMutation } from "../../../../redux/api/orderAPI";
 import { Skeleton } from "../../../../components/loader";
 import { responseToast } from "../../../../utils/features";
 import { useSelector } from "react-redux";
+import { UserReducerInitialState } from "../../../../types/reducer-types";
 
 
   const defaultData: Order = {
@@ -31,8 +31,7 @@ import { useSelector } from "react-redux";
   };
   
 const TransactionManagement = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
-
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
   const params = useParams();
   const navigate = useNavigate();
 

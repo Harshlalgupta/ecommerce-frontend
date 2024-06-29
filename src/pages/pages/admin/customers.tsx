@@ -7,12 +7,12 @@ import { Skeleton } from "../../../components/loader";
 import { CustomError } from "../../../types/api-types";
 import toast from "react-hot-toast";
 import { responseToast } from "../../../utils/features";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import {
   useAllUsersQuery,
   useDeleteUserMutation,
 } from "../../../redux/api/userAPI";
+import { UserReducerInitialState } from "../../../types/reducer-types";
 
 interface DataType {
   avatar: ReactElement;
@@ -51,7 +51,7 @@ const columns: Column<DataType>[] = [
 ];
 
 const Customers = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, isError, error } = useAllUsersQuery(user?._id!);
 

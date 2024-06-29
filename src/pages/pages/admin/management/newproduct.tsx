@@ -1,15 +1,14 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import AdminSidebar from "../../../../components/admin/AdminSidebar";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { useNewProductMutation } from "../../../../redux/api/productAPI";
 import { useNavigate } from "react-router-dom";
 import { responseToast } from "../../../../utils/features";
+import { UserReducerInitialState } from "../../../../types/reducer-types";
 
 const NewProduct = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [price, setPrice] = useState<number>(1000);

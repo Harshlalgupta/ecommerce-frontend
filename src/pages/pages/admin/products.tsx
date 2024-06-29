@@ -5,12 +5,12 @@ import { Column } from "react-table";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
 import TableHOC from "../../../components/admin/TableHOC";
 import { useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
 import { useAllProductsQuery } from "../../../redux/api/productAPI";
 import { CustomError } from "../../../types/api-types";
 import toast from "react-hot-toast";
 import { server } from "../../../redux/store";
 import { Skeleton } from "../../../components/loader";
+import { UserReducerInitialState } from "../../../types/reducer-types";
 
 interface DataType {
   photo: ReactElement;
@@ -43,7 +43,7 @@ const columns: Column<DataType>[] = [
   },
 ];
 const Products = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, isError, error, data } = useAllProductsQuery(user?._id!);
 

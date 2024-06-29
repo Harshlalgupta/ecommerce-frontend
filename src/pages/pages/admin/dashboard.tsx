@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useStatsQuery } from "../../../redux/api/dashboardAPI";
 import { Navigate } from "react-router-dom";
 import { Skeleton } from "../../../components/loader";
+import { UserReducerInitialState } from "../../../types/reducer-types";
 
 
 const userImg =
@@ -20,7 +21,7 @@ const userImg =
 const { last6Months: months } = getLastMonths();
 
 const Dashboard = () => {
-  const { user } = useSelector((state: RootState) => state.userReducer);
+  const { user } = useSelector((state: {userReducer:UserReducerInitialState}) => state.userReducer);
 
   const { isLoading, data, isError } = useStatsQuery(user?._id!);
 

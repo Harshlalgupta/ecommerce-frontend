@@ -1,7 +1,9 @@
 E-commerce Frontend
+
 Welcome to the frontend of our E-commerce platform! This project is the client-side application designed to provide a seamless and engaging shopping experience for users. Built with modern web technologies, the frontend interacts with our backend API to deliver a robust and scalable e-commerce solution.
 
 Key Features
+
 User Authentication: Secure user registration and login functionality.
 
 Product Management: Browse, search, and filter a wide range of products.
